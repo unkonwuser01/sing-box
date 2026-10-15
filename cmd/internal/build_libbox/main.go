@@ -165,6 +165,7 @@ func buildAndroid() {
 
 	// Build main variant (SDK 24)
 	mainTags := append([]string{}, sharedTags...)
+	mainTags = append(mainTags, "with_gvisor")
 	// mainTags = append(mainTags, memcTags...)
 	if debugEnabled {
 		mainTags = append(mainTags, debugTags...)
@@ -177,6 +178,7 @@ func buildAndroid() {
 
 	// Build legacy variant (SDK 21, no naive outbound)
 	legacyTags := filterTags(sharedTags, "with_naive_outbound")
+	legacyTags = append(legacyTags, "with_gvisor")
 	// legacyTags = append(legacyTags, memcTags...)
 	if debugEnabled {
 		legacyTags = append(legacyTags, debugTags...)
